@@ -14,7 +14,7 @@ Texture2D cursorTexture;
 
 void InitEditor()
 {
-    GuiLoadStyle("raygui/styles/cyber/style_cyber.rgs");
+    GuiLoadStyle("raygui-master/styles/cyber/style_cyber.rgs");
 
     Image image = LoadImage("resources/reticle.png");
     cursorTexture = LoadTextureFromImage(image);
