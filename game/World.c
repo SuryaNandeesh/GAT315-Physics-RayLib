@@ -1,42 +1,57 @@
-#include <stdlib.h>
+#include "world.h"
 #include <assert.h>
-#include "World.h"
+#include <stdlib.h>
+#include <string.h>
 
-Body* bodies = NULL;
-int bodyCount = 0;
+ncBody* ncBodies = NULL;
+int ncBodyCount = 0;
+Vector2 ncGravity;
 
-Body* CreateBody() {
-    Body* newBody = (Body*)malloc(sizeof(Body));
-    assert(newBody != NULL);
+ncBody* CreateBody(Vector2 position, float mass, ncBodyType bodyType)
+{
+	ncBody* body = (ncBody*)malloc(sizeof(ncBody));
+	assert(body);
+	memset(body, 0, sizeof(ncBody));
 
-    newBody->prev = NULL;
-    newBody->next = bodies;
+	body->position = position;
+	body->mass = mass;
+	body->inverseMass = (bodyType == BT_DYNAMIC) ? 1 / mass : 0;
+	body->type = bodyType;
+	body->force = (Vector2){ 0, 0 };
 
-    if (bodies != NULL) {
-        bodies->prev = newBody;
-    }
-
-    bodies = newBody;
-    bodyCount++;
-
-    return newBody;
+	return body;
 }
 
-void DestroyBody(Body* body) {
-    assert(body != NULL);
+void AddBody(ncBody* body)
+{
+	assert(body);
 
-    if (body->prev != NULL) {
-        body->prev->next = body->next;
-    }
+	body->prev = (NULL);
+	body->next = ncBodies;
+	if (ncBodies) ncBodies->prev = body;
+	ncBodies = body;
+	ncBodyCount++;
+}
 
-    if (body->next != NULL) {
-        body->next->prev = body->prev;
-    }
+void DestroyBody(ncBody* body)
+{
+	assert(body);
+	if (body->prev) body->prev->next = body->next;
+	if (body->next) body->next->prev = body->prev;
+	if (body == ncBodies) ncBodies = body->next;
+	ncBodyCount--;
+	free(body);
+}
 
-    if (body == bodies) {
-        bodies = body->next;
-    }
-
-    bodyCount--;
-    free(body);
+void DestroyAllBodies()
+{
+	ncBody* body = ncBodies;
+	while (body)
+	{
+		ncBody* temp = body->next;
+		free(body);
+		body = temp;
+	}
+	ncBodyCount = 0;
+	ncBodies = NULL;
 }

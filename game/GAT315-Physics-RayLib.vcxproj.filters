@@ -15,12 +15,66 @@
     <ClCompile Include="World.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Fireworks.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Body.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Contact.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Force.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Render.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Spring.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Body.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="World.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fireworks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Contact.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Force.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Integrator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MathF.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Render.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Spring.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

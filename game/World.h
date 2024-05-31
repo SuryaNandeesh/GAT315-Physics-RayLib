@@ -1,12 +1,13 @@
 #pragma once
-#ifndef WORLD_H
-#define WORLD_H
+#include "body.h"
 
-#include <Body.h>
-extern Body* bodies;
-extern int bodyCount;
+typedef struct ncBody ncBody;
 
-Body* CreateBody();
-void DestroyBody(Body* body);
+extern ncBody* ncBodies;
+extern int ncBodyCount;
+extern Vector2 ncGravity;
 
-#endif
+ncBody* CreateBody(Vector2 position, float mass, ncBodyType bodyType);
+void AddBody(ncBody* body);
+void DestroyBody(ncBody* body);
+void DestroyAllBodies();
